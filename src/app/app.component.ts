@@ -27,13 +27,16 @@ export class AppComponent {
   }
 
   removerFuncionario(funcionario: Funcionario){
-    this.funcionarios = this.funcionarios.filter(function(funcionarios){
-      return funcionarios !== funcionario;
-    });
+    var confirmacao = confirm('Você realmente deseja remover este funcionário?');
+    if(confirmacao){
+      this.funcionarios = this.funcionarios.filter(function(funcionarios){
+        return funcionarios !== funcionario;
+      });
 
-    alert("Funcionário removido com sucesso!");
+      alert("Funcionário removido com sucesso!");
 
-    this.funcionariosCopia = this.funcionarios;
+      this.funcionariosCopia = this.funcionarios;
+    }
   }
 
   ordenarPorCpf(funcionarios: Funcionario[]){
